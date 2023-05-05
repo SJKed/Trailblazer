@@ -16,8 +16,7 @@
         "main": "apps/trailblazer/src/main.tsx",
         "tsConfig": "apps/trailblazer/tsconfig.app.json",
         "assets": [
-          "apps/trailblazer/src/favicon.ico",
-          "apps/trailblazer/src/assets"
+          "apps/trailblazer/src/favicon.ico"
         ],
         "styles": ["apps/trailblazer/src/styles.scss"],
         "scripts": [],
