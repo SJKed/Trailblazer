@@ -4,8 +4,8 @@ import React from 'react'
 function Footer() {
     return (
         <footer>
-            <div className="Half-one"></div>
-            <div className="Half-two"></div>
+            <div className="Footer-half-one"></div>
+            <div className="Footer-half-two"></div>
         </footer>
     )
 }
