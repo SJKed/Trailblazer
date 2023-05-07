@@ -1,12 +1,15 @@
-.Dashboard-header {
-    height: 200px;
+footer {
     position: relative;
     display: flex;
-    background: transparent;
+    flex-direction: row;
+    justify-content: space-evenly;
     align-items: center;
-    text-align: center;
-    justify-content: center;
+    background: transparent;
     color: white;
+    height: 200px;
+    width: 100vw;
+    bottom: 0;
+    margin-top: auto;
 }
 
 .Half-one {
@@ -25,18 +28,4 @@
     z-index: -1;
     height: 100%;
     right: 0;
-}
-
-.Dashboard-header h1 {
-    font-size: 3rem;
-    font-weight: 700;
-    margin: 0;
-}
-
-.Dashboard-header h2 {
-    font-size: 1.5rem;
-    font-weight: 400;
-    margin: 0;
-    position: absolute;
-    right: 5%;
 }

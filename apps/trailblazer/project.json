@@ -51,7 +51,9 @@
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "trailblazer:build",
-        "hmr": true
+        "hmr": true,
+        "liveReload": true,
+        "watch": true
       },
       "configurations": {
         "development": {

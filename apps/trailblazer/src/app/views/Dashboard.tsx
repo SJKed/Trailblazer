@@ -1,29 +1,48 @@
 import { useState, useEffect } from 'react';
 import { getUserDetails } from '../utils/api'
-import Header from './components/Header';
-import Cookies from 'js-cookie';
+import { Header, Footer } from './components';
+import Home from './Home';
+import '../stylesheets/Dashboard.scss';
 
 function Dashboard() {
-    const [user, setUser] = useState({username: 'Unknown'});
+    const [user, setUser] = useState({ username: 'Unknown', id: 1 });
+    const [view, setView] = useState('home');
+
+    async function checkAuth() {
+        const response = await getUserDetails();
+        if (response) { return response }
+        else { window.location.href = `${process.env.NX_FRONTEND_URL}`; }
+    }
+
 
     useEffect(() => {
-        async function get() {
-            try {
-                const res = await getUserDetails();
-                setUser(res.user);
-            } catch (err) {
-                window.location.href = `${process.env.FRONTEND_URL}}`;
-            }
-        }
-        get();
+        checkAuth().then((res) => {
+            setUser(res.user);
+        }).catch((err) => {
+            window.location.href = `${process.env.NX_FRONTEND_URL}`;
+        });
     }, []);
 
     return (
         <div className="Dashboard">
-            <Header user={user} />
+            <Header username={user.username} />
             <main>
-                <h1>{user.username}</h1>
+                <div className="Nav-bar">
+                    <button onClick={() => setView('home')}>Home</button>
+                    <button onClick={() => setView('news')}>News</button>
+                    <button onClick={() => setView('trades')}>Trades</button>
+                    <button onClick={() => setView('profile')}>{user.username}</button>
+                </div>
+
+                <div className="View">
+                    {view === 'home' && <Home />}
+                    {/* {view === 'news' && <News />}
+                    {view === 'trades' && <Trades />}
+                    {view === 'profile' && <Profile />} */}
+                </div>
+
             </main>
+            <Footer />
         </div>
     );
 }

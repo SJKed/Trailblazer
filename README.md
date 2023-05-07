@@ -9,4 +9,3 @@ Trailblazer is full-stack application that allows Pokémon fans to connect via t
 ## Quick Start & Documentation
 Run `npm install` to install dependencies. Then `npx nx run-many --target=serve --all=true` to run the application in development mode.
 
-

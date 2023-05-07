@@ -10,3 +10,14 @@ export async function getUserDetails() {
         throw err;
     });
 };
+
+export async function getAllUsers() {
+    return axios.get(`${process.env.NX_API_URL}/users/all`, {
+        withCredentials: true
+    }).then((res) => {
+        return res.data;
+    }).catch((err) => {
+        console.log(err);
+        throw err;
+    });
+}

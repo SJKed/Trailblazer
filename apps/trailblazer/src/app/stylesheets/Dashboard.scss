@@ -1,0 +1,50 @@
+::root {
+    --gradient-scarlet: linear-gradient(180deg, #9e2a22, #730000);
+    --gradient-violet: linear-gradient(180deg, #527, #250044);
+    --background-gray: #282c34;
+}
+
+.Dashboard {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    color: white;
+}
+
+.Main-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.Nav-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #282c34;
+    color: white;
+    height: 4rem;
+    width: 100%;
+
+    button {
+        background-color: transparent;
+        border: none;
+        color: white;
+        font-size: 1rem;
+        font-weight: 700;
+        padding: 0.5rem 1rem;
+        width: 100px;
+        height: 100%;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            background-color: #527;
+            cursor: pointer;
+        }
+
+        &:hover:nth-child(2n) {
+            background-color: #9e2a22;
+            cursor: pointer;
+        }
+    }
+}

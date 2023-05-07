@@ -1,12 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../stylesheets/Landing.scss';
 import Cookies from 'js-cookie';
+import { getUserDetails } from '../utils/api';
 
 function LandingPage() {
-    // if a valid discord-auth cookie already exists, redirect to the dashboard
-    if (Cookies.get('api-auth')) {
-        window.location.href = '/dashboard';
+    async function checkAuth() {
+        const response = await getUserDetails();
+        if (response && response.user) {
+            return true;
+        }
+        return false;
     }
+
+    useEffect(() => {
+        checkAuth().then((res) => {
+            if (res) {
+                window.location.href = `${process.env.NX_FRONTEND_URL}/dashboard`;
+            }
+        }).catch((err) => {
+            console.log(err);
+        });
+    }, []);
 
     return (
         <div className="landing">
