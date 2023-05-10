@@ -1,0 +1,76 @@
+.Trainer-card {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    color: black;
+    width: 300px;
+    height: 100px;
+    margin: 1rem;
+}
+
+.violet-card {
+    &:hover {
+        box-shadow: 0 0 10px 10px #527;
+        scale: 1.05;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+    }
+}
+
+.scarlet-card {
+    &:hover {
+        box-shadow: 0 0 10px 10px #9e2a22;
+        scale: 1.05;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+    }
+}
+
+.left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 33%;
+
+    img {
+        width: 80%;
+    }
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    width: 67%;
+}
+
+.top-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    width: 100%;
+    padding-right: 0.5rem;
+
+    .username {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        width: 80%;
+    }
+
+    .language {
+        margin-left: auto;
+        margin-right: 10px;
+    }
+}
+
+.bottom-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+
+    p {
+        margin-top: -10px;
+    }
+}
