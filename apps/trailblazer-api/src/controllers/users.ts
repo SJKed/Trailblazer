@@ -16,5 +16,22 @@ export default {
     async getUserWithPokemonYouNeed(req, res) {
         console.log(req);
         res.send('ok');
+    },
+
+    async updateMe(req, res) {
+        console.log(req);
+        const user = await DiscordUser.findOne({ where: { email: req.user.email } });
+        if (!user) { res.status(404).send('User not found'); }
+        const { missingPokemon, gameVersion, gameLanguage } = req.body;
+        user.update({ missingPokemon, gameVersion, gameLanguage });
+        res.json(user);
+    },
+
+    async getMe(req, res) {
+        console.log(req);
+        const user = await DiscordUser.findOne({ where: { email: req.user.email } });
+        if (!user) { res.status(404).send('User not found'); }
+        res.json(user);
     }
 }
+

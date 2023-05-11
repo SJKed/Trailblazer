@@ -9,6 +9,14 @@ router.get('/all',
     Promisify(UserController.getAllUsers)
 );
 
+router.put('/me',
+    Promisify(UserController.updateMe)
+);
+
+router.get('/me',
+    Promisify(UserController.getMe)
+);
+
 export default router;
 
     

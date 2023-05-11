@@ -21,3 +21,14 @@ export async function getAllUsers() {
         throw err;
     });
 }
+
+export async function updateMe(user: any) {
+    return axios.put(`${process.env.NX_API_URL}/users/me`, user, {
+        withCredentials: true
+    }).then((res) => {
+        return res.data;
+    }).catch((err) => {
+        console.log(err);
+        throw err;
+    });
+}
