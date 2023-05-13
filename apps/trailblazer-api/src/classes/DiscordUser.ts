@@ -5,7 +5,7 @@ export class DiscordUser extends Model {
     public discordId!: string;
     public username!: string;
     public email!: string;
-    public missingPokemon!: number[];
+    public missingPokemon!: string[];
     public gameVersion!: string;
     public gameLanguage!: string;
 

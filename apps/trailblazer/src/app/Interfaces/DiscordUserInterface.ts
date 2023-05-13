@@ -3,7 +3,7 @@ export interface DiscordUserInterface {
     discordId: string;
     username: string;
     email: string;
-    missingPokemon: number[];
+    missingPokemon: string[];
     gameVersion: string;
     gameLanguage: string;
 }

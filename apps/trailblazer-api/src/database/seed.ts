@@ -8,9 +8,9 @@ export async function seed() {
         username: 'testuser',
         email: 'text@email.com',
         missingPokemon: [
-            1, 
-            2, 
-            3
+            'miraidon',
+            'sandaconda',
+            'larvesta'
         ],
         gameVersion: 'Sword',
         gameLanguage: 'English',

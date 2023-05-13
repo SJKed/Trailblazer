@@ -22,8 +22,19 @@ export async function getAllUsers() {
     });
 }
 
-export async function updateMe(user: any) {
-    return axios.put(`${process.env.NX_API_URL}/users/me`, user, {
+export async function updateMe(data: any) {
+    return axios.put(`${process.env.NX_API_URL}/users/me`, data, {
+        withCredentials: true
+    }).then((res) => {
+        return res.data;
+    }).catch((err) => {
+        console.log(err);
+        throw err;
+    });
+}
+
+export async function getMe() {
+    return axios.get(`${process.env.NX_API_URL}/users/me`, {
         withCredentials: true
     }).then((res) => {
         return res.data;

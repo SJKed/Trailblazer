@@ -19,11 +19,16 @@ export default {
     },
 
     async updateMe(req, res) {
-        console.log(req);
         const user = await DiscordUser.findOne({ where: { email: req.user.email } });
         if (!user) { res.status(404).send('User not found'); }
+        console.log('user found')
+        console.log(user)
         const { missingPokemon, gameVersion, gameLanguage } = req.body;
-        user.update({ missingPokemon, gameVersion, gameLanguage });
+        user.update({
+            missingPokemon,
+            gameVersion,
+            gameLanguage
+        });
         res.json(user);
     },
 

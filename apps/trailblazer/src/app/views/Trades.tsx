@@ -6,40 +6,10 @@ import Trainercard from './components/Trainercard';
 
 
 function Trades() {
-    const [users, setUsers] = useState([{
-        username: 'SJK',
-        gameLanguage: 'ENG',
-        gameVersion: 'Scarlet',
-        missingPokemon: [1, 2, 3]
-    },
-    {
-        username: 'SJK',
-        gameLanguage: 'ENG',
-        gameVersion: 'Scarlet',
-        missingPokemon: [1, 2, 3]
-    },
-    {
-        username: 'SJK',
-        gameLanguage: 'ENG',
-        gameVersion: 'Scarlet',
-        missingPokemon: [1, 2, 3]
-    },
-    {
-        username: 'SJK',
-        gameLanguage: 'ENG',
-        gameVersion: 'Scarlet',
-        missingPokemon: [1, 2, 3]
-    },
-    {
-        username: 'xXxSasukeUchiha420xXx',
-        gameLanguage: 'JP',
-        gameVersion: 'Violet',
-        missingPokemon: [1001, 937, 938]
-    }])
+    const [users, setUsers] = useState([])
 
     async function getUsers() {
         await getAllUsers().then((res) => {
-            console.log(res)
             setUsers(res)
         }).catch((err) => {
             console.log(err)
@@ -47,7 +17,7 @@ function Trades() {
     }
 
     useEffect(() => {
-        // getUsers()
+        getUsers()
     }, [])
 
 
