@@ -7,8 +7,8 @@
     "build": "nx build",
     "test": "nx test",
     "lint": "nx lint",
-    "serve:api": "nx serve trailblazer-api",
-    "serve:frontend": "nx serve trailblazer",
+    "serve:api": "WATCHPACK_POLLING=true nx serve trailblazer-api",
+    "serve:frontend": "WATCHPACK_POLLING=true nx serve trailblazer",
     "dev": "nodemon --watch 'apps/trailblazer/src' --exec 'nx serve trailblazer'"
   },
   "private": true,
