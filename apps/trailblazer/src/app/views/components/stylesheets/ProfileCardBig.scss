@@ -1,0 +1,258 @@
+.ProfileCardWrapper {
+    position: relative;
+    margin-top: 15%;
+    color: white;
+
+    @media (max-width: 1024px) {
+        margin-top: 15%;
+    }
+}
+
+.ProfileCard::before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 210px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: transparent;
+    box-shadow: 0px 0px 0px 2000px #1e1e1e;
+    border: 4px solid #d9d9d9;
+
+    @media (max-width: 1024px) {
+        transform: scale(0.75) translateX(-65%);
+    }
+}
+
+.ProfileCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 800px;
+    width: 400px;
+    box-sizing: border-box;
+    overflow: hidden;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+
+    @media (max-width: 1024px) {
+        transform: scale(0.75);
+    }
+}
+
+.ProfileCardAvatar {
+    position: absolute;
+    top: -100px;
+    left: 100px;
+    width: 192px;
+    height: 192px;
+    border-radius: 50%;
+    background-color: #1e1e1e;
+    border: 4px solid #d9d9d9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    @media (max-width: 1024px) {
+        transform: scale(0.55);
+        top: 0px;
+        left: 102.5px;
+    }
+}
+
+.ProfileCardInfo {
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-top: 100px;
+
+    @media (max-width: 1024px) {
+        margin-top: -180px;
+    }
+}
+
+.ProfileCardName {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 44px;
+    text-align: center;
+    margin-bottom: 10px;
+
+    @media (max-width: 1024px) {
+        font-size: 20px;
+        line-height: 36px;
+        margin-bottom: 5px;
+    }
+}
+
+.GameVersion,
+.GameLanguage {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+
+    @media (max-width: 1024px) {
+        margin-bottom: 10px;
+    }
+}
+
+.Actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 50px;
+    margin-top: -10px;
+
+    @media (max-width: 1024px) {
+        width: 80%;
+    }
+
+    select {
+        width: 100%;
+        border-radius: 10px;
+        border: none;
+        background-color: #1e1e1e;
+        color: #d9d9d9;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 22px;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-right: 10px;
+
+        @media (max-width: 1024px) {
+            font-size: 16px;
+            line-height: 20px;
+        }
+    }
+
+    option {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 22px;
+
+        @media (max-width: 1024px) {
+            font-size: 16px;
+            line-height: 20px;
+        }
+    }
+
+    img {
+        margin-left: 10px;
+        width: 25px;
+        object-fit: cover;
+        cursor: pointer;
+
+        @media (max-width: 1024px) {
+            width: 20px;
+        }
+    }
+}
+
+.MissingPokemon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 300px;
+    margin-top: 20px;
+
+    @media (max-width: 1024px) {
+        margin-top: 10px;
+    }
+}
+
+.MissingPokemonList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 80%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-top: 20px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    // make scrollbar invisible
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+        width: 0px;
+        background: transparent; /* make scrollbar transparent */
+    }
+
+
+
+    .MissingPokemonListItem {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        height: 100px;
+        text-align: left;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        background-color: #1e1e1e;
+        color: #ffffff;
+        border-radius: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+
+        @media (max-width: 1024px) {
+            height: 40px;
+            margin-bottom: 5px;
+        }
+
+        img {
+            object-fit: cover;
+            margin-right: 10px;
+
+            @media (max-width: 1024px) {
+                width: 20px;
+            }
+        }
+
+        span {
+            font-style: normal;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 22px;
+            color: #d9d9d9;
+
+            @media (max-width: 1024px) {
+                font-size: 16px;
+                line-height: 20px;
+            }
+        }
+    }
+
+    @media (max-width: 1024px) {
+        margin-top: 10px;
+    }
+}

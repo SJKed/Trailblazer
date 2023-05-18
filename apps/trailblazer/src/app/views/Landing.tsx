@@ -15,7 +15,7 @@ function LandingPage() {
     useEffect(() => {
         checkAuth().then((res) => {
             if (res) {
-                window.location.href = `${process.env.NX_FRONTEND_URL}/dashboard`;
+                window.location.href = `${process.env.NX_FRONTEND_URL}/frontpage`;
             }
         }).catch((err) => {
             console.log(err);

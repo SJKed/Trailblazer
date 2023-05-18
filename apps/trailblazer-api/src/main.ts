@@ -6,6 +6,9 @@ import routes from './routes';
 import { setup } from './database/setup';
 import { seed } from './database/seed';
 import { DiscordUser } from './models';
+import fs from 'fs';
+import axios from 'axios';
+import { setTimeout } from 'timers';
 require('./strategies/discordstrategy');
 
 const app = express();
@@ -23,8 +26,8 @@ app.get('/api', (req, res) => { res.send({ message: 'Welcome to trailblazer-api!
 app.use('/api/auth', routes.auth);
 app.use('/api/users', routes.users);
 
+
 async function main() {
-  await setup();
   app.listen(port, () => { console.log(`Listening at http://localhost:${port}/api`); });
 }
 

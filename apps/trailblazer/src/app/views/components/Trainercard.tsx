@@ -35,7 +35,7 @@ function Trainercard(props: any) {
                     <p className='language'>{user.gameLanguage}</p>
                 </div>
                 <div className="bottom-right">
-                    <p>{user.missingPokemon.length > 0 ? 'Incomplete Pokédex' : 'Pokédex Completed'}</p>
+                    <p>{user.missingPokemon?.length > 0 ? 'Incomplete Pokédex' : 'Pokédex Completed'}</p>
                 </div>
             </div>
         </div>

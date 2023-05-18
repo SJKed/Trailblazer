@@ -1,6 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { createBrowserRouter, RouterProvider, Route, Link, } from "react-router-dom";
-import { Landing, Dashboard } from './views';
+import { Landing, Dashboard, Frontpage, Profile } from './views';
 import './stylesheets/App.scss';
 
 
@@ -12,6 +12,14 @@ const BrowserRouter = createBrowserRouter([
   {
     path: "/dashboard",
     element: <Dashboard />,
+  },
+  {
+    path: "/frontpage",
+    element: <Frontpage />,
+  },
+  {
+    path: "/profile",
+    element: <Profile />,
   },
 ]);
 

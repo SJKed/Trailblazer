@@ -1,0 +1,148 @@
+.FrontpageBackground {
+    // background-image: url('../../assets/images/Koraidon4kWallpaper.jpg');
+    background-image: url('https://s3-alpha-sig.figma.com/img/17de/3f62/d753248a6c763b04f0331831cf1f65c9?Expires=1684713600&Signature=jiA~uAord-cLemkpAXtSoZYAa00NnrjVSFdvONb5GnjLhavlnkWVxdFFZLVKm8J7KXFNdHvuGblwbLeZN6yykAM4TtzMalR3OOa4hjNiSXNa-l6zlvfWKC-fJsdV1TOmALj1CvlfPCRaUcUOR-m95aN66csvDmj2iE542qAtOcWQx97G2WfdgPSyOIyHN5jRr65iziaR6~tRHiZx5Qys-u2m5nEsZIHtmUyLgsHNPTEf9UjfXd4-SSAWrpk93oCr2HxmKsNJJAf673wsZ3HB09r~8hNp68tKDuJeqW8upwVfAAJVEIvKWCfF-v8OoE7yaQElx7edIhJeyyak8FEeFQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    background-size: 110%;
+    position: absolute;
+    z-index: -2;
+    filter: blur(2.5px);
+}
+
+.FrontendContentWrapper {
+    display: flex;
+    flex-direction: row;
+    margin-left: 10%;
+    margin-right: 10%;
+    z-index: -1;
+}
+
+.LeftSideFade {
+    background: linear-gradient(90deg, #1e1e1e80 30%, #d9d9d900 70%);
+    height: 100vh;
+    width: 50vw;
+    position: absolute;
+    left: 0;
+    z-index: 0;
+}
+
+.RightSideFade {
+    background: linear-gradient(90deg, #1e1e1e80 30%, #d9d9d900 70%);
+    transform: scaleX(-1);
+    height: 100vh;
+    width: 50vw;
+    position: absolute;
+    right: 0;
+    z-index: 0;
+}
+
+.LeftSide {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    width: 50%;
+    z-index: 10;
+}
+
+.Head {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    width: 100%;
+    margin-top: -10px;
+    margin-bottom: -32px;
+    z-index: 10;
+
+    a {
+        text-decoration: none;
+        color: white;
+    }
+
+    h2 {
+        font-size: 3rem;
+        color: rgba(255, 255, 255, 0);
+        -webkit-text-stroke: 2px white;
+        margin-bottom: 0;
+        width: fit-content;
+        transition: all 0.2s ease-in;
+
+        // on hover
+        &:hover {
+            color: rgba(255, 255, 255, 1);
+            -webkit-text-stroke: 2px white;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+    }
+
+    h1 {
+        margin-top: 0;
+        font-size: 5rem;
+        width: fit-content;
+        color: rgba(255, 255, 255, 0);
+        -webkit-text-stroke: 2px white;
+        transition: all 0.2s ease-in;
+
+        &:hover {
+            color: rgba(255, 255, 255, 1);
+            -webkit-text-stroke: 2px white;
+            margin-left: 10px;
+        }
+    }
+}
+
+.Selection {
+    z-index: 10;
+
+    li {
+        list-style-image: url('../../assets/icons/Pokeball-default.svg');
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: bold;
+        font-size: 64px;
+        line-height: 75px;
+        color: white;
+        margin-top: 48px;
+        text-align: left;
+        text-transform: uppercase;
+        padding-left: 3rem;
+        text-shadow: 4px 4px 0px rgba(30, 30, 30, 0.5);
+        transition: all 0.3s;
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        &:hover {
+            // rotate 90 degrees clockwise on hover over 300ms
+            padding-left: 4rem;
+            text-shadow: 4px 4px 0px #FF0000;
+            list-style-image: url('../../assets/icons/Pokeball-hovered.svg');
+            cursor: pointer;
+        }
+    }
+}
+
+.RightSide {
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: right;
+    width: 50%;
+}
+
+.Cards {
+    z-index: 11;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}

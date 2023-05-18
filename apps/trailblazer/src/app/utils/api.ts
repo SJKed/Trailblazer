@@ -1,4 +1,5 @@
 import axios from 'axios';
+import fs from 'fs';
 
 export async function getUserDetails() {
     return axios.get(`${process.env.NX_API_URL}/auth`, {
@@ -35,6 +36,17 @@ export async function updateMe(data: any) {
 
 export async function getMe() {
     return axios.get(`${process.env.NX_API_URL}/users/me`, {
+        withCredentials: true
+    }).then((res) => {
+        return res.data;
+    }).catch((err) => {
+        console.log(err);
+        throw err;
+    });
+}
+
+export async function createPokedexJSON() {
+    return axios.get(`${process.env.NX_API_URL}/pokedex`, {
         withCredentials: true
     }).then((res) => {
         return res.data;

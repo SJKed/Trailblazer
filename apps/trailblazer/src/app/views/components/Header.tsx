@@ -11,6 +11,7 @@ const Header = () => {
         const y = e.clientY / window.innerHeight;
         const koraidon = document.querySelector('.Half-one img') as HTMLElement;
         const miraidon = document.querySelector('.Half-two img') as HTMLElement;
+        if (!koraidon || !miraidon) return console.log('No image found');
         koraidon.style.transform = `translate(-${x * 50}px, -${y * 50}px)`;
         miraidon.style.transform = `translate(${x * 50}px, ${y * 50}px)`;
     }

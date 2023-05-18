@@ -1,15 +1,13 @@
 import { useState, useEffect } from 'react';
 import { getUserDetails } from '../utils/api'
 import { Header, Footer } from './components';
-import Home from './Home';
-import Trades from './Trades';
-import Profile from './Profile';
+import { Profile, Trades } from './subviews';
 import '../stylesheets/Dashboard.scss';
 import Cookies from 'js-cookie';
 
 function Dashboard() {
     const [user, setUser] = useState({ username: 'Temp name', id: 1, discordid: '1231321', email: 'email@email.com', gameLanguage: 'ENG', gameVersion: 'Scarlet', missingPokemon: [1, 2, 3] })
-    const [view, setView] = useState('home');
+    const [view, setView] = useState('profile');
 
     async function checkAuth() {
         const response = await getUserDetails();
@@ -45,7 +43,6 @@ function Dashboard() {
             <main>
 
                 <div className="View">
-                    {view === 'home' && <Home />}
                     {/* {view === 'news' && <News />} */}
                     {view === 'trades' && <Trades />}
                     {view === 'profile' && <Profile user={user} />}

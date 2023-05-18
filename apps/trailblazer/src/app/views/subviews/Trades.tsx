@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import '../stylesheets/Trades.scss';
-import '../stylesheets/Shared-view-main.scss';
-import { getAllUsers } from '../utils/api';
-import Trainercard from './components/Trainercard';
+import '../../stylesheets/Trades.scss';
+import '../../stylesheets/Shared-view-main.scss';
+import { getAllUsers } from '../../utils/api';
+import Trainercard from '../components/Trainercard';
 
 
 function Trades() {
