@@ -3,7 +3,6 @@ import { DiscordUser } from "../classes/DiscordUser";
 
 export default {
     async getAllUsers(req, res) {
-        console.log('called')
         const users = await DiscordUser.findAll({
             attributes: {
                 include: ['username', 'missingPokemon', 'gameVersion', 'gameLanguage'],
@@ -14,15 +13,12 @@ export default {
     },
 
     async getUserWithPokemonYouNeed(req, res) {
-        console.log(req);
         res.send('ok');
     },
 
     async updateMe(req, res) {
         const user = await DiscordUser.findOne({ where: { email: req.user.email } });
         if (!user) { res.status(404).send('User not found'); }
-        console.log('user found')
-        console.log(user)
         const { missingPokemon, gameVersion, gameLanguage } = req.body;
         user.update({
             missingPokemon,
@@ -33,7 +29,6 @@ export default {
     },
 
     async getMe(req, res) {
-        console.log(req);
         const user = await DiscordUser.findOne({ where: { email: req.user.email } });
         if (!user) { res.status(404).send('User not found'); }
         res.json(user);

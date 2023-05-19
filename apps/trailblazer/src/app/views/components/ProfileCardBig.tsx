@@ -49,7 +49,7 @@ function ProfileCardBig(props: any) {
                     sprite: sprite
                 }
 
-                user.missingPokemon.push(newPokemon);
+                user.missingPokemon.unshift(newPokemon)
                 setUser({ ...user, missingPokemon: user.missingPokemon })
                 setSelectedPokedexResults('')
             }).catch((err) => {
@@ -119,30 +119,33 @@ function ProfileCardBig(props: any) {
                             }
                             {user.gameLanguage ? <img src={pen} onClick={() => { setUser({ ...user, gameLanguage: null }) }} /> : null}
                         </div>
-                        <div className="MissingPokemon">
-                            <h2>Missing Pokemon: {user.missingPokemon?.length ? user.missingPokemon.lenght : ''}</h2>
-                            <div className="addPokemon">
-                                <input type="text" placeholder="Add Pokemon" list="pokedex" onChange={(e) => { setSelectedPokedexResults(e.target.value) }} value={selectedPokedexResults} />
-                                <datalist id="pokedex">
-                                    {pokedex.map((pokemon: any) => {
-                                        return <option value={pokemon.pokemon_species.name} />
-                                    })}
-                                </datalist>
-                                <button onClick={() => {
-                                    handleAddMissingPokemon(selectedPokedexResults)
-                                }}>Add</button>
-                            </div>
-                            <div className="MissingPokemonList">
-                                {user.missingPokemon?.map((pokemon: any) => {
-                                    return <div className="MissingPokemonListItem">
+                    </div>
+                    <div className="MissingPokemon">
+                        <h2>Missing Pokemon: {user.missingPokemon?.length ? user.missingPokemon.lenght : ''}</h2>
+                        <div className="addPokemon">
+                            <input type="text" placeholder="Add Pokemon" list="pokedex" onChange={(e) => { setSelectedPokedexResults(e.target.value) }} value={selectedPokedexResults} />
+                            <datalist id="pokedex">
+                                {pokedex.map((pokemon: any) => {
+                                    return <option value={pokemon.pokemon_species.name} />
+                                })}
+                            </datalist>
+                            <button onClick={() => {
+                                handleAddMissingPokemon(selectedPokedexResults)
+                            }}>Add</button>
+                        </div>
+                        <div className="MissingPokemonList">
+                            {user.missingPokemon?.reverse().map((pokemon: any) => {
+                                return (
+                                    <div className="MissingPokemonListItem">
                                         <img src={pokemon.sprite} />
                                         <h3>{pokemon.name}</h3>
                                         <button onClick={() => {
                                             handleRemoveMissingPokemon(pokemon)
                                         }}>Remove</button>
                                     </div>
-                                })}
-                            </div>
+                                );
+                            })}
+
                         </div>
                     </div>
                 </div>

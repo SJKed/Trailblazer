@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getUserDetails } from '../utils/api';
 import '../stylesheets/Profile.scss'
-import { redirect } from 'react-router-dom';
+import { redirect, Link } from 'react-router-dom';
 import ProfileCardBig from './components/ProfileCardBig';
 
 function Profile() {
@@ -17,7 +17,7 @@ function Profile() {
     async function checkAuth() {
         const response = await getUserDetails();
         if (response) { return response }
-    }   
+    }
 
     useEffect(() => {
         document.addEventListener('mousemove', moveBackgroundImage);
@@ -36,6 +36,7 @@ function Profile() {
             <div className="ProfileRightSideFade" />
             <div className="ProfileContentWrapper">
                 <div className="LeftSide">
+                    <Link to="/frontpage">Home</Link>
                     <ProfileCardBig user={user} />
                 </div>
                 <div className="RightSide">
