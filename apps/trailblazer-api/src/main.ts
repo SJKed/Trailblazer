@@ -28,6 +28,8 @@ app.use('/api/users', routes.users);
 
 async function main() {
   app.listen(port, () => { console.log(`Listening at http://localhost:${port}/api`); });
+  await setup();
+  await seed();
   discordbot.login(process.env.DISCORD_BOT_TOKEN);
 }
 
