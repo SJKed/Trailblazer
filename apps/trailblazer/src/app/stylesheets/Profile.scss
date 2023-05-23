@@ -1,4 +1,4 @@
-.Wrapper {
+.ProfileWrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,7 +13,6 @@
     background-image: url('https://pbs.twimg.com/media/FcEDbM0akAAFr09?format=jpg&name=large');
     background-size: cover;
     background-repeat: no-repeat;
-    // position background image to be slightly offset to the right
     background-position: 20% 70%;
     height: 100%;
     width: 100%;
@@ -29,7 +28,6 @@
     width: 50vw;
     position: absolute;
     left: 0;
-    z-index: -1;
 }
 
 .ProfileRightSideFade {
@@ -39,7 +37,6 @@
     width: 50vw;
     position: absolute;
     right: 0;
-    z-index: -1;
 }
 
 .ProfileContentWrapper {
@@ -55,9 +52,60 @@
 .LeftSide {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between !important;
     align-items: left;
     width: 50%;
     z-index: 10;
-    height: 100%;
+
+
+    .HotLinks {
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        align-items: left;
+        width: 100%;
+        z-index: 10;
+        text-decoration: none;
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        h2 {
+            list-style-image: url('../../assets/icons/Pokeball-default.svg');
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: bold;
+            font-size: 64px;
+            color: white;
+            text-align: left;
+            text-transform: uppercase;
+            text-shadow: 4px 4px 0px rgba(30, 30, 30, 0.5);
+            transition: all 0.3s;
+            text-decoration: none;
+            margin-bottom: 0px;
+
+            &:hover {
+                padding-left: 1rem;
+                text-shadow: 4px 4px 0px #FF0000;
+                list-style-image: url('../../assets/icons/Pokeball-hovered.svg');
+                cursor: pointer;
+            }
+        }
+    }
+
+    .ProfileCardSmallProfile {
+        margin-left: 50px;
+        margin-bottom: 50px;
+    }
+}
+
+.RightSide {
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
 }

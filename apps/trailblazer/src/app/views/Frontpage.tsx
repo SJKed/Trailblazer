@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getUserDetails } from '../utils/api';
 import '../stylesheets/Frontpage.scss'
 import { Link } from 'react-router-dom';
+import NewsCardBig from './components/NewsCardBig';
 
 
 export function Frontpage() {
@@ -30,42 +31,46 @@ export function Frontpage() {
     }, []);
 
     return (
-        <div className="wrapper">
+        <div className="FrontpageWrapper">
             <div className='FrontpageBackground' />
             <div className="LeftSideFade" />
             <div className="RightSideFade" />
             <div className="FrontendContentWrapper">
-                <div className="LeftSide">
-                    <div className="Head">
-                        <Link to={`/profile`}>
-                            <h2>{user.username.toUpperCase()}</h2>
-                        </Link>
-                        <h1>TRAILBLAZER</h1>
-                    </div>
-                    <div className="Selection">
-                        <ul>
-                            <li>
-                                <Link to='/dashboard'>TRADES</Link>
-                            </li>
-                            <li>
-                                <Link to='/profile'>PROFILE</Link>
-                            </li>
-                            <li>
-                                <Link to='/dashboard'>NEWS</Link>
-                            </li>
-                            <li>
-                                <Link to='/dashboard'>CONTACT</Link>
-                            </li>
-                            <li>
-                                <Link to='/dashboard'>LOG OUT</Link>
-                            </li>
-                        </ul>
-                    </div>
+                <div className="Head">
+                    <Link to={`/profile`}>
+                        <h2>{user.username.toUpperCase()}</h2>
+                    </Link>
+                    <h1>TRAILBLAZER</h1>
                 </div>
-                <div className="RightSide">
-                    <div className="Cards">
-                        <div className="NewsCard"></div>
-                        <div className="NewsCardSmall"></div>
+                <div className="Sides">
+                    <div className="LeftSide">
+                        <div className="Selection">
+                            <ul>
+                                <li>
+                                    <Link to='/trades'>TRADES</Link>
+                                </li>
+                                <li>
+                                    <Link to='/profile'>PROFILE</Link>
+                                </li>
+                                <li>
+                                    <Link to='/dashboard'>NEWS</Link>
+                                </li>
+                                <li>
+                                    <Link to='/dashboard'>CONTACT</Link>
+                                </li>
+                                <li>
+                                    <Link to='/dashboard'>LOG OUT</Link>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="RightSide">
+                        <div className="Cards">
+                            <div className="NewsCard">
+                                <NewsCardBig />
+                            </div>
+                            <div className="NewsCardSmall"></div>
+                        </div>
                     </div>
                 </div>
             </div>

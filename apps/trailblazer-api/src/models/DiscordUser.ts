@@ -33,6 +33,14 @@ DiscordUser.init({
         type: new DataTypes.STRING,
         allowNull: true,
     },
+    online: {
+        type: new DataTypes.BOOLEAN,
+        allowNull: true,
+    },
+    tradeRequest: {
+        type: new DataTypes.STRING,
+        allowNull: true,
+    },
 }, {
     sequelize: db,
     tableName: 'discord_users',

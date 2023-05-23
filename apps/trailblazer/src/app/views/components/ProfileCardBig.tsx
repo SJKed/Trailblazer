@@ -7,7 +7,9 @@ import TrailblazerIcon from '../../../assets/icons/Trailblazer.png'
 import { updateMe } from '../../utils/api';
 import PokedexJSON from '../../../assets/Pokedex.json'
 import axios from 'axios';
+import { handleLanguageAbbreviation } from '../../utils/helpers';
 
+// somethingChanged is a function that is passed down from the parent component
 function ProfileCardBig(props: any) {
     const [user, setUser] = useState(props.user)
     const [versionPrevious, setVersionPrevious] = useState('')
@@ -27,6 +29,7 @@ function ProfileCardBig(props: any) {
     useEffect(() => {
         updateMe(user).then((res) => {
             console.log(res)
+            props.somethingChanged(user)
         }).catch((err) => {
             console.log(err)
         })
@@ -36,7 +39,7 @@ function ProfileCardBig(props: any) {
     const handleAddMissingPokemon = (e: any) => {
         if (selectedPokedexResults != '') {
             const pokemon = selectedPokedexResults.split(' ')[0].toLowerCase();
-            if (user.missingPokemon.find((p: { name: string, id: number, sprite: string }) => p.name == pokemon)) { setSelectedPokedexResults(''); console.log('Already added'); return }
+            if (user.missingPokemon?.find((p: { name: string, id: number, sprite: string }) => p.name == pokemon)) { setSelectedPokedexResults(''); console.log('Already added'); return }
             const api = 'https://pokeapi.co/api/v2/pokemon/'
             axios.get(`${api}${pokemon}`).then((res) => {
                 const name = res.data.name;
@@ -49,7 +52,9 @@ function ProfileCardBig(props: any) {
                     sprite: sprite
                 }
 
-                user.missingPokemon.unshift(newPokemon)
+                if (!user.missingPokemon) { user.missingPokemon = [newPokemon] }
+                else { user.missingPokemon.unshift(newPokemon) }
+
                 setUser({ ...user, missingPokemon: user.missingPokemon })
                 setSelectedPokedexResults('')
             }).catch((err) => {
@@ -61,11 +66,14 @@ function ProfileCardBig(props: any) {
     const handleRemoveMissingPokemon = (e: any) => {
         console.log(e.id)
         const pokemon = e.id;
-        // remove pokemon from missingPokemon array
         const newMissingPokemon = user.missingPokemon.filter((p: { name: string, id: number, sprite: string }) => p.id != pokemon)
         setUser({ ...user, missingPokemon: newMissingPokemon })
     }
 
+    const handleSetLanguage = (language: string) => {
+        const AbbreviatedLanguage = handleLanguageAbbreviation(language)
+        setUser({ ...user, gameLanguage: AbbreviatedLanguage })
+    }
 
 
     return (
@@ -86,7 +94,7 @@ function ProfileCardBig(props: any) {
                                     onChange={(e) => {
                                         setUser({ ...user, gameVersion: e.target.value })
                                     }}
-                                    defaultValue={versionPrevious ? versionPrevious : 'Select Version'}
+                                    defaultValue={'Select Version'}
                                 >
                                     <option value="Select Version" disabled>Select Version</option>
                                     <option value="Scarlet">Scarlet</option>
@@ -102,7 +110,8 @@ function ProfileCardBig(props: any) {
                             {user.gameLanguage ? <h3>{user.gameLanguage}</h3> :
                                 <select name="language" id="language"
                                     onChange={(e) => {
-                                        setUser({ ...user, gameLanguage: e.target.value })
+                                        if (e.target.value == 'Select Language') { return }
+                                        handleSetLanguage(e.target.value)
                                     }}
                                     defaultValue="Select Language"
                                 >

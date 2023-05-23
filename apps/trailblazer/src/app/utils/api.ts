@@ -55,3 +55,25 @@ export async function createPokedexJSON() {
         throw err;
     });
 }
+
+export async function getAllOnlineUsers() {
+    return axios.get(`${process.env.NX_API_URL}/users/all/online`, {
+        withCredentials: true
+    }).then((res) => {
+        return res.data;
+    }).catch((err) => {
+        console.log(err);
+        throw err;
+    });
+}
+
+export async function sendTradeRequest(user: any) {
+    return axios.post(`${process.env.NX_API_URL}/users/trade`, user, {
+        withCredentials: true
+    }).then((res) => {
+        return res.data;
+    }).catch((err) => {
+        console.log(err);
+        throw err;
+    });
+}

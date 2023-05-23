@@ -9,12 +9,20 @@ router.get('/all',
     Promisify(UserController.getAllUsers)
 );
 
+router.get('/all/online',
+    Promisify(UserController.getAllOnlineUsers)
+);
+
 router.put('/me',
     Promisify(UserController.updateMe)
 );
 
 router.get('/me',
     Promisify(UserController.getMe)
+);
+
+router.post('/trade',
+    Promisify(UserController.sendTradeRequest)
 );
 
 export default router;

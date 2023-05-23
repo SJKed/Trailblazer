@@ -6,4 +6,6 @@ export interface DiscordUserInterface {
     missingPokemon: string[];
     gameVersion: string;
     gameLanguage: string;
+    online: boolean;
+    tradeRequest: string;
 }

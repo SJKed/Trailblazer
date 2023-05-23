@@ -6,9 +6,8 @@ import routes from './routes';
 import { setup } from './database/setup';
 import { seed } from './database/seed';
 import { DiscordUser } from './models';
-import fs from 'fs';
-import axios from 'axios';
-import { setTimeout } from 'timers';
+// import discordbot ./discordbot/discordbot
+import discordbot from './discordbot/discordbot';
 require('./strategies/discordstrategy');
 
 const app = express();
@@ -29,6 +28,7 @@ app.use('/api/users', routes.users);
 
 async function main() {
   app.listen(port, () => { console.log(`Listening at http://localhost:${port}/api`); });
+  discordbot.login(process.env.DISCORD_BOT_TOKEN);
 }
 
 main();

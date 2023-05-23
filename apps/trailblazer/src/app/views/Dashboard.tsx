@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getUserDetails } from '../utils/api'
-import { Header, Footer } from './components';
+import { Header } from './components';
 import { Profile, Trades } from './subviews';
 import '../stylesheets/Dashboard.scss';
 import Cookies from 'js-cookie';
@@ -49,7 +49,6 @@ function Dashboard() {
                 </div>
 
             </main>
-            <Footer />
         </div>
     );
 }

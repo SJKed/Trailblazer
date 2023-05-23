@@ -1,12 +1,12 @@
 .FrontpageBackground {
     // background-image: url('../../assets/images/Koraidon4kWallpaper.jpg');
-    background-image: url('https://s3-alpha-sig.figma.com/img/17de/3f62/d753248a6c763b04f0331831cf1f65c9?Expires=1684713600&Signature=jiA~uAord-cLemkpAXtSoZYAa00NnrjVSFdvONb5GnjLhavlnkWVxdFFZLVKm8J7KXFNdHvuGblwbLeZN6yykAM4TtzMalR3OOa4hjNiSXNa-l6zlvfWKC-fJsdV1TOmALj1CvlfPCRaUcUOR-m95aN66csvDmj2iE542qAtOcWQx97G2WfdgPSyOIyHN5jRr65iziaR6~tRHiZx5Qys-u2m5nEsZIHtmUyLgsHNPTEf9UjfXd4-SSAWrpk93oCr2HxmKsNJJAf673wsZ3HB09r~8hNp68tKDuJeqW8upwVfAAJVEIvKWCfF-v8OoE7yaQElx7edIhJeyyak8FEeFQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4');
+    background-image: url('../../assets/images/FrontpageBG.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     height: 100%;
     width: 100%;
-    background-size: 110%;
+    background-size: 100%;
     position: absolute;
     z-index: -2;
     filter: blur(2.5px);
@@ -14,7 +14,7 @@
 
 .FrontendContentWrapper {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin-left: 10%;
     margin-right: 10%;
     z-index: -1;
@@ -96,6 +96,11 @@
     }
 }
 
+.Sides {
+    display: flex;
+    flex-direction: row;
+}
+
 .Selection {
     z-index: 10;
 
@@ -120,7 +125,7 @@
         }
 
         &:hover {
-            // rotate 90 degrees clockwise on hover over 300ms
+            animation: rotate 0.3s ease-in-out forwards;
             padding-left: 4rem;
             text-shadow: 4px 4px 0px #FF0000;
             list-style-image: url('../../assets/icons/Pokeball-hovered.svg');
