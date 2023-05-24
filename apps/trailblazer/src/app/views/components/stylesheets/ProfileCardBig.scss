@@ -1,14 +1,14 @@
 .ProfileCardWrapper {
     position: relative;
-    margin-top: 15%;
-    margin-left: auto;
-    margin-right: auto;
+    margin-top: 40%;
+    margin-right: 70%;
     color: white;
 
     @media (max-width: 1024px) {
         margin-top: 15%;
     }
 }
+
 
 .ProfileCard::before {
     content: "";
@@ -34,7 +34,7 @@
     justify-content: center;
     align-items: center;
     position: absolute;
-    
+
     height: 800px;
     width: 400px;
     box-sizing: border-box;
@@ -97,6 +97,7 @@
     height: 44px;
     margin: 0;
     justify-self: flex-start;
+
     h1 {
         margin: 0;
     }
@@ -207,9 +208,11 @@
     // make scrollbar invisible
     scrollbar-width: none;
     -ms-overflow-style: none;
+
     &::-webkit-scrollbar {
         width: 0px;
-        background: transparent; /* make scrollbar transparent */
+        background: transparent;
+        /* make scrollbar transparent */
     }
 
 
