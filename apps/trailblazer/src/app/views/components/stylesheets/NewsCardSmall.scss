@@ -2,8 +2,8 @@ a {
     text-decoration: none;
 }
 
-.NewsCardWrapper {
-    height: 450px;
+.NewsCardSmallWrapper {
+    height: 128px;
     width: 384px;
     background-color: #1e1e1e;
     box-sizing: border-box;
@@ -19,18 +19,14 @@ a {
     padding: 1rem;
     justify-content: flex-end;
     transition: all 0.3s;
-
-    @media screen and (max-width: 768px) {
-        display: none;
-    }
 }
 
-.NewsCardWrapper:hover {
+.NewsCardSmallWrapper:hover {
     box-shadow: 0 0 10px #d9d9d9;
     cursor: pointer;
 }
 
-.NewsCardGlowLayer {
+.NewsCardSmallGlowLayer {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -39,26 +35,25 @@ a {
     background: linear-gradient(180deg, rgba(217, 217, 217, 0) 0%, rgba(217, 217, 217, 0.4) 100%);
 }
 
-.NewsCardContent {
+.NewsCardSmallContent {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     width: 100%;
+    padding-top: 1rem;
 
-    .NewsCardHeading {
+    .NewsCardSmallHeading {
         h1 {
             padding: 0;
             margin-bottom: 0;
         }
     }
 
-    .NewsCardBody {
-        margin-top: 0;
-        padding-top: 0;
+    .NewsCardSmallBody {
         padding-left: 1rem;
         padding-right: 1rem;
-        padding-bottom: 1rem;
+
         width: 100%;
         text-align: center;
     }

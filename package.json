@@ -4,6 +4,8 @@
   "license": "MIT",
   "scripts": {
     "start": "nx serve",
+    "start:build": "node dist/apps/trailblazer/main.js",
+    "start:api": "node dist/apps/trailblazer-api/main.js",
     "build": "nx build",
     "build:all": "nx run-many --target=build --all",
     "test": "nx test",

@@ -68,10 +68,6 @@
             width: 90%;
             overflow: hidden;
             white-space: nowrap;
-
-            @media (max-width: 480px) {
-                animation: resizeFont 0.5s infinite;
-            }
         }
 
         h3 {

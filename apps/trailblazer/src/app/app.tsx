@@ -4,6 +4,7 @@ import { Landing, Dashboard, Frontpage, Profile, Trades } from './views';
 import './stylesheets/app.scss';
 
 
+
 const BrowserRouter = createBrowserRouter([
   {
     path: "/",

@@ -3,12 +3,15 @@ import { getUserDetails } from '../utils/api';
 import '../stylesheets/Frontpage.scss'
 import { Link } from 'react-router-dom';
 import NewsCardBig from './components/NewsCardBig';
+import NewsCardSmall from './components/NewsCardSmall';
 
 
 export function Frontpage() {
     const [user, setUser] = useState({ username: 'Temp name', id: 1, discordid: '1231321', email: 'email@email.com', gameLanguage: 'ENG', gameVersion: 'Scarlet', missingPokemon: [1, 2, 3] })
 
     function moveBackgroundImage(e: MouseEvent) {
+        // if window is smaller than 768px, return early
+        if (window.innerWidth < 768) return;
         const x = e.clientX / window.innerWidth;
         const y = e.clientY / window.innerHeight;
         const backgroundImage = document.querySelector('.FrontpageBackground') as HTMLElement;
@@ -69,7 +72,9 @@ export function Frontpage() {
                             <div className="NewsCard">
                                 <NewsCardBig />
                             </div>
-                            <div className="NewsCardSmall"></div>
+                            <div className="NewsCardSmall">
+                                <NewsCardSmall />
+                            </div>
                         </div>
                     </div>
                 </div>

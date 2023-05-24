@@ -4,6 +4,7 @@ import MiraidonIcon from '../../../assets/images/Violet-icon.png';
 import KoraidonIcon from '../../../assets/images/Scarlet-icon.png';
 import TrailblazerIcon from '../../../assets/icons/Trailblazer.png';
 import { sendTradeRequest } from '../../utils/api';
+import { Dialog } from '@mui/material';
 
 function ProfileCardSmall(props: any) {
     const [user, setUser] = useState(props.user);
@@ -30,7 +31,9 @@ function ProfileCardSmall(props: any) {
 
     return (
         <div className="SmallProfileCardWrapper">
-            <div className="SmallProfileCard" onClick={() => setDialog(!dialog)}>
+            <div className="SmallProfileCard" onClick={() => {
+                props.showMobileDialog(user)
+            }}>
                 <div className="SmallProfileCardAvatar">
                     <img
                         src={
@@ -60,9 +63,8 @@ function ProfileCardSmall(props: any) {
                 </div>
 
             </div>
-            {dialog && (
+            {/* {dialog && (window.innerWidth > 768) && (
                 <div className="SmallProfileCardDialog">
-                    {/* display a scrollable list of all missingPokemon */}
                     <div className="SmallProfileCardDialogLeft">
                         <h2>{user?.username}</h2>
                         <p>This trainer is looking for:</p>
@@ -104,7 +106,7 @@ function ProfileCardSmall(props: any) {
                         </button>
                     </div>
                 </div>
-            )}
+            )} */}
         </div>
     );
 }

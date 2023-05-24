@@ -20,6 +20,7 @@ client.on(Events.InteractionCreate, async interaction => {
         const users = await DiscordUser.findAll();
         users.forEach(async user => {
             const member = await interaction.guild?.members.fetch(user.discordId);
+            if (!member) return;
             if (member?.presence.status === 'online') {
                 user.update({ online: true });
             } else {
@@ -35,6 +36,7 @@ client.on(Events.ClientReady, async () => {
         const users = await DiscordUser.findAll();
         users.forEach(async (user) => {
             const member = guild.presences.cache.find(p => p.userId === user.discordId)
+            console.log(member)
             if (member && (member.status === 'online') && user.online !== true) { DiscordUser.update({ online: true }, { where: { discordId: user.discordId } }); }
             if (!member && user.online === true) { DiscordUser.update({ online: false }, { where: { discordId: user.discordId } }); }
             if (member && (member.status === 'offline') && user.online === true) { DiscordUser.update({ online: false }, { where: { discordId: user.discordId } }); }
@@ -49,7 +51,16 @@ client.on(Events.ClientReady, async () => {
                     const tradeChannel = await client.channels.cache.get('1110593552683106315') as TextChannel;
                     tradeChannel.send(`Hey ${target}, ${requester} is online and would like to trade with you!`);
 
-
+                    tradeChannel.threads.create({
+                        name: `${requester.user.username} and ${target.user.username}`,
+                        autoArchiveDuration: 1440,
+                        reason: 'Trade Request',
+                        invitable: false,
+                    }).then(async thread => {
+                        await thread.members.add(requester.user.id);
+                        await thread.members.add(target.user.id);
+                    });
+                    
                     DiscordUser.update({ tradeRequest: null }, { where: { discordId: user.discordId } });
                 }
             }

@@ -10,6 +10,11 @@
     position: absolute;
     z-index: -2;
     filter: blur(2.5px);
+
+    @media screen and (max-width: 768px) {
+        background-size: cover;
+        background-image: url('../../assets/images/Phone-wallpaper.jpg');
+    }
 }
 
 .FrontendContentWrapper {
@@ -18,6 +23,13 @@
     margin-left: 10%;
     margin-right: 10%;
     z-index: -1;
+    height: 100vh;
+
+    @media screen and (max-width: 768px) {
+        margin-left: 0;
+        margin-right: 0;
+        overflow: hidden
+    }
 }
 
 .LeftSideFade {
@@ -27,6 +39,10 @@
     position: absolute;
     left: 0;
     z-index: 0;
+
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
 }
 
 .RightSideFade {
@@ -37,7 +53,16 @@
     position: absolute;
     right: 0;
     z-index: 0;
+
+    @media screen and (max-width: 768px) {
+        height: 10vh;
+        width: 100vw;
+        top: 0;
+        left: 0;
+        background: linear-gradient(180deg, #1e1e1e80 50%, #d9d9d900 70%);
+    }
 }
+
 
 .LeftSide {
     display: flex;
@@ -46,6 +71,10 @@
     align-items: left;
     width: 50%;
     z-index: 10;
+
+    @media screen and (max-width: 768px) {
+        width: 100%;
+    }
 }
 
 .Head {
@@ -78,6 +107,10 @@
             margin-left: 10px;
             cursor: pointer;
         }
+
+        @media screen and (max-width: 768px) {
+            display: none;
+        }
     }
 
     h1 {
@@ -93,12 +126,35 @@
             -webkit-text-stroke: 2px white;
             margin-left: 10px;
         }
+
+        @media screen and (max-width: 768px) {
+            font-size: 5rem;
+        }
+
+        @media screen and (max-width: 425px) {
+            font-size: 3rem;
+        }
+
     }
+
+    @media screen and (max-width: 768px) {
+        width: 120%;
+        margin-left: -15%;
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
 }
 
 .Sides {
     display: flex;
     flex-direction: row;
+
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+    }
 }
 
 .Selection {
@@ -112,7 +168,7 @@
         font-size: 64px;
         line-height: 75px;
         color: white;
-        margin-top: 48px;
+        margin-bottom: 48px;
         text-align: left;
         text-transform: uppercase;
         padding-left: 3rem;
@@ -131,6 +187,13 @@
             list-style-image: url('../../assets/icons/Pokeball-hovered.svg');
             cursor: pointer;
         }
+
+        @media screen and (max-width: 768px) {
+            list-style-image: none;
+            list-style-type: none;
+            padding-left: 0;
+            margin-left: 0;
+        }
     }
 }
 
@@ -141,13 +204,18 @@
     justify-content: right;
     align-items: right;
     width: 50%;
+
+    @media screen and (max-width: 768px) {
+        width: 100%;
+    }
 }
 
 .Cards {
     z-index: 11;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
     width: 100%;
+    height: 100%;
 }
