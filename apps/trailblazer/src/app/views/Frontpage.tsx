@@ -58,12 +58,6 @@ export function Frontpage() {
                                 <li>
                                     <Link to='/dashboard'>NEWS</Link>
                                 </li>
-                                <li>
-                                    <Link to='/dashboard'>CONTACT</Link>
-                                </li>
-                                <li>
-                                    <Link to='/dashboard'>LOG OUT</Link>
-                                </li>
                             </ul>
                         </div>
                     </div>
