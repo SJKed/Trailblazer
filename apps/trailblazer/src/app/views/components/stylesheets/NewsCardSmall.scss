@@ -19,6 +19,11 @@ a {
     padding: 1rem;
     justify-content: flex-end;
     transition: all 0.3s;
+
+    @media screen and (max-width: 768px) {
+        transform: scale(0.9);
+        
+    }
 }
 
 .NewsCardSmallWrapper:hover {
