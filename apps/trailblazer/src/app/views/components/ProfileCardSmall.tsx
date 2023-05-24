@@ -61,52 +61,7 @@ function ProfileCardSmall(props: any) {
                         </p>
                     </div>
                 </div>
-
             </div>
-            {/* {dialog && (window.innerWidth > 768) && (
-                <div className="SmallProfileCardDialog">
-                    <div className="SmallProfileCardDialogLeft">
-                        <h2>{user?.username}</h2>
-                        <p>This trainer is looking for:</p>
-                        {user?.missingPokemon?.length > 0 ? (
-                            <div className="SmallProfileCardDialogMissingList">
-                                {user?.missingPokemon?.map((p: any) => (
-                                    <div className="SmallProfileCardDialogMissingListItem">
-                                        <img src={p.sprite} alt="sprite of a pokemon" />
-                                        <p>{p.name}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        )
-                            :
-                            (
-                                <p>This trainer has completed their pokedex!</p>
-                            )
-                        }
-                    </div>
-                    <div className="SmallProfileCardDialogButtons">
-                        <button
-                            onClick={() => {
-                                setDialog(false);
-                            }}
-                        >
-                            Close
-                        </button>
-
-                        <button
-                            onClick={() => {
-                                sendTradeRequest(user);
-                            }}
-                        >
-                            Trade
-                        </button>
-
-                        <button>
-                            Message
-                        </button>
-                    </div>
-                </div>
-            )} */}
         </div>
     );
 }
