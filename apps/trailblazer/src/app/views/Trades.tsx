@@ -3,8 +3,12 @@ import { getUserDetails, getAllUsers } from '../utils/api';
 import ProfileCardSmall from './components/ProfileCardSmall'
 import { Link } from 'react-router-dom';
 import '../stylesheets/Trades.scss'
-import { Dialog } from '@mui/material';
+import { Dialog, Button } from '@mui/material';
 import { sendTradeRequest } from '../utils/api';
+import CloseIcon from '@mui/icons-material/Close';
+import SwapHorizIcon from '@mui/icons-material/SwapHoriz';
+import MessageIcon from '@mui/icons-material/Message';
+
 
 function Trades() {
     const [user, setUser] = useState({ username: 'Temp name', id: 1, discordid: '1231321', email: 'email@email.com', gameLanguage: 'ENG', gameVersion: 'Scarlet', missingPokemon: [1, 2, 3], online: true })
@@ -33,9 +37,29 @@ function Trades() {
         });
     }, []);
 
-    const handleShowMobileDialog = (user: any) => {
+    useEffect(() => {
+        if (filterOnline) {
+            const filteredUsers = users.filter((user: any) => {
+                return user.online === true;
+            });
+            setUsers(filteredUsers);
+        } else {
+            getAllUsers().then((res) => {
+                setUsers(res);
+            }).catch((err) => {
+                console.log(err);
+            });
+        }
+    }, [filterOnline]);
+
+    useEffect(() => {
+        console.log(user)
+    }, [user]);
+
+    const handleShowMobileDialog = (emit: any) => {
+        console.log(emit)
         setShowMobileDialog(!showMobileDialog);
-        setDialogUser(user);
+        setDialogUser(emit);
     }
 
     return (
@@ -55,11 +79,11 @@ function Trades() {
                     <div className="SmallProfileCardDialogMobile">
                         {/* display a scrollable list of all missingPokemon */}
                         <div className="SmallProfileCardDialogLeftMobile">
-                            <h2>{user?.username}</h2>
+                            <h2>{dialogUser?.username}</h2>
                             <p>This trainer is looking for:</p>
-                            {user?.missingPokemon?.length > 0 ? (
+                            {dialogUser?.missingPokemon?.length > 0 ? (
                                 <div className="SmallProfileCardDialogMissingListMobile">
-                                    {user?.missingPokemon?.map((p: any) => (
+                                    {dialogUser?.missingPokemon?.map((p: any) => (
                                         <div className="SmallProfileCardDialogMissingListItemMobile">
                                             <img src={p.sprite} alt="sprite of a pokemon" />
                                             <p>{p.name}</p>
@@ -74,25 +98,32 @@ function Trades() {
                             }
                         </div>
                         <div className="SmallProfileCardDialogButtonsMobile">
-                            <button
+                            <Button
+                                variant="contained"
+                                size='large'
                                 onClick={() => {
                                     setShowMobileDialog(false);
                                 }}
                             >
-                                Close
-                            </button>
+                                <CloseIcon />
+                            </Button>
 
-                            <button
+                            <Button
+                                variant="contained"
+                                size='large'
                                 onClick={() => {
-                                    sendTradeRequest(user);
+                                    sendTradeRequest(dialogUser);
                                 }}
                             >
-                                Trade
-                            </button>
+                                <SwapHorizIcon />
+                            </Button>
 
-                            <button>
-                                Message
-                            </button>
+                            <Button
+                                variant="contained"
+                                size='large'
+                            >
+                                <MessageIcon />
+                            </Button>
                         </div>
                     </div>
                 </Dialog>

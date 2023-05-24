@@ -12,8 +12,11 @@
     filter: blur(2.5px);
 
     @media screen and (max-width: 768px) {
-        background-size: cover;
         background-image: url('../../assets/images/Phone-wallpaper.jpg');
+    }
+
+    @media screen and (max-width: 1024px) {
+        background-size: 120%;
     }
 }
 

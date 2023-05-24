@@ -10,7 +10,6 @@ export function Frontpage() {
     const [user, setUser] = useState({ username: 'Temp name', id: 1, discordid: '1231321', email: 'email@email.com', gameLanguage: 'ENG', gameVersion: 'Scarlet', missingPokemon: [1, 2, 3] })
 
     function moveBackgroundImage(e: MouseEvent) {
-        // if window is smaller than 768px, return early
         if (window.innerWidth < 768) return;
         const x = e.clientX / window.innerWidth;
         const y = e.clientY / window.innerHeight;
