@@ -54,9 +54,8 @@ function Profile() {
     const handleAddMissingPokemon = (pokemon: MissingPokemonInterface) => {
         console.log(pokemon)
         console.log(user.missingPokemon)
-        if (user.missingPokemon?.find((p: { name: string; id: number; sprite: string }) => p.name === pokemon.name)) {
-            return;
-        }
+        if (user.missingPokemon === null) { return setUser({ ...user, missingPokemon: [pokemon] }); }
+        if (user.missingPokemon?.find((p: { name: string; id: number; sprite: string }) => p.name === pokemon.name)) { return; }
         const newMissingPokemon = [...user.missingPokemon, pokemon];
         setUser({ ...user, missingPokemon: newMissingPokemon });
     };
