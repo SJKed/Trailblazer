@@ -135,7 +135,11 @@ function ProfileCardBig(props: any) {
                             <input type="text" placeholder="Add Pokemon" list="pokedex" onChange={(e) => { setSelectedPokedexResults(e.target.value) }} value={selectedPokedexResults} />
                             <datalist id="pokedex">
                                 {pokedex.map((pokemon: any) => {
-                                    return <option key={pokemon.pokemon_species.name} value={pokemon.pokemon_species.name} />
+                                    return (
+                                        <option key={pokemon.pokemon_species.name} value={pokemon.pokemon_species.name}>
+                                            {pokemon.pokemon_species.name}
+                                        </option>
+                                    )
                                 })}
                             </datalist>
                             <button onClick={() => {
