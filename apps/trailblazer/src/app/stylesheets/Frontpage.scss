@@ -217,6 +217,13 @@
     align-items: right;
     width: 50%;
 
+    @media screen and (max-width: 1440px) and (max-height: 680px) {
+        position: absolute;
+        left: 50%;
+        height: 100%;
+        top: 0;
+    }
+
     @media screen and (max-width: 768px) {
         width: 100%;
     }
